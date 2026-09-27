@@ -40,7 +40,6 @@ def find_duplicates_by_name(files: list[LiteralString | str | bytes]) -> Dict[st
     Finds duplicate files by comparing their names.
     Returns a dictionary mapping each unique file name to a list of its duplicates.
     """
-    # TODO: Handle subdirectories as well!
     name_to_files = {}
 
     # Extract only the file name without the dir
@@ -91,8 +90,18 @@ def find_duplicates_by_content(file_paths: list[LiteralString | str | bytes]) ->
     Finds duplicate files by comparing their content byte by byte.
     Returns a dictionary mapping each unique file to a list of its duplicates.
     """
-    # TODO: Implement by opening files and comparing their content
-    pass
+    content_to_files = {}
+
+    for file_path in file_paths:
+        if os.path.isfile(file_path):
+            with open(file_path, "rb") as file:
+                content = file.read()
+                if content not in content_to_files:
+                    content_to_files[content] = []
+                content_to_files[content].append(file_path)
+
+    duplicates = {content: files for content, files in content_to_files.items() if len(files) > 1}
+    return duplicates
 
 
 def calculate_storage_stats(duplicates: Dict[str, List[str]]) -> Dict[str, int]:
@@ -142,7 +151,6 @@ def main():
         duplicates = find_duplicates_by_hash(files_metadata)
     else:
         duplicates = find_duplicates_by_content(file_paths)
-
 
     # Calculate stats
     results = calculate_storage_stats(duplicates)
