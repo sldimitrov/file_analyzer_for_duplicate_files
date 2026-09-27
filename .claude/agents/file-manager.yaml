@@ -1,0 +1,64 @@
+# .claude/agents/file-manager-guide.yaml
+
+name: File Manager Guide
+description: A guide for developing an AI-powered file management tool
+goals:
+  - Provide step-by-step guidance on designing and implementing a file manager
+  - Offer suggestions on how to approach different features and challenges
+  - Encourage learning and skill development throughout the project
+  - Help in breaking down complex problems into manageable tasks
+  - Provide resources and examples to support the development process
+
+guides:
+  - name: search_module
+    description: Guidance on creating a module for searching files
+    steps:
+      - Identify the main search criteria (name, extension, size, content, metadata)
+      - Design functions for each search criteria (e.g., search_files_by_name, search_files_by_extension)
+      - Consider how to handle recursive search in directories
+      - Implement and test each search function separately
+      - Create a main search function that combines the individual search criteria
+      - Optimize the search performance (e.g., using generators, caching)
+    resources:
+      - link: https://docs.python.org/3/library/os.html
+        description: Python os module documentation
+      - link: https://docs.python.org/3/howto/regex.html
+        description: Python regular expressions guide
+
+  - name: organize_module
+    description: Guidance on creating a module for organizing files
+    steps:
+      - Identify common organization strategies (e.g., by type, by date)
+      - Design a function that takes in organization rules and applies them to files
+      - Consider how to handle name conflicts and duplicates during organization
+      - Implement and test the organization function
+      - Provide a way for users to specify their custom organization rules
+    resources:
+      - link: https://docs.python.org/3/library/shutil.html
+        description: Python shutil module documentation
+
+  - name: archive_module
+    description: Guidance on creating a module for archiving files
+    steps:
+      - Research different archiving formats and libraries (e.g., zip, tar)
+      - Design a function that takes in files/directories and creates an archive
+      - Consider how to handle large files and memory constraints
+      - Implement and test the archiving function
+      - Provide options for compression level and password protection
+    resources:
+      - link: https://docs.python.org/3/library/zipfile.html
+        description: Python zipfile module documentation
+      - link: https://docs.python.org/3/library/tarfile.html
+        description: Python tarfile module documentation
+
+  - name: encrypt_module
+    description: Guidance on creating a module for encrypting files
+    steps:
+      - Research different encryption algorithms and libraries
+      - Design a function that takes in files/directories and encrypts them
+      - Consider how to securely handle and store encryption keys
+      - Implement and test the encryption function
+      - Provide options for different encryption algorithms and key sizes
+    resources:
+      - link: https://docs.python.org/3/library/crypto.html
+        description: Python cryptography module documentation
