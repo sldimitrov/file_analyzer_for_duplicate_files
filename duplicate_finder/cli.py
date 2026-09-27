@@ -14,4 +14,3 @@ Responsibilities:
 # TODO: main() - glue the pipeline stages together in order.
 #   - If main() gets long, which part belongs in its own function
 #     so the GUI can reuse it later without argparse?
-
